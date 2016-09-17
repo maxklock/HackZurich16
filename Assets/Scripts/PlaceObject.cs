@@ -26,8 +26,7 @@ public class PlaceObject : MonoBehaviour
 
     public void OnCollisionExit(Collision col)
     {
-        var tap = col.gameObject.GetComponent<TapToPlace>();
-        if (tap == null)
+        if (col.gameObject.GetComponent<InteractiveObject>() == null)
         {
             return;
         }
@@ -36,23 +35,18 @@ public class PlaceObject : MonoBehaviour
 
     public void OnCollisionStay(Collision col)
     {
-        var tap = col.gameObject.GetComponent<TapToPlace>();
-        if (tap == null || !_canCollide)
+        var interaction = col.gameObject.GetComponent<InteractiveObject>();
+        if (_tapToPlace.Placing || !_canCollide || interaction == null)
         {
             return;
         }
 
-        if (!_tapToPlace.Placing)
-        {
-            var interaction = col.gameObject.GetComponent<InteractiveObject>();
-            interaction.Action.Invoke();
-        }
+        interaction.Action.Invoke();
     }
 
     public void OnCollisionEnter(Collision col)
     {
-        var tap = col.gameObject.GetComponent<TapToPlace>();
-        if (tap == null || !_tapToPlace.Placing)
+        if (!_tapToPlace.Placing || col.gameObject.GetComponent<InteractiveObject>() == null)
         {
             return;
         }
