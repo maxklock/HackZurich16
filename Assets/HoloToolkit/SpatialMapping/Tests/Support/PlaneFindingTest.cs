@@ -3,6 +3,8 @@
 
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+
 using HoloToolkit.Unity;
 
 /// <summary>
@@ -21,7 +23,7 @@ public class PlaneFindingTest : MonoBehaviour
     public bool VisualizeSubPlanes = false;
 
     private List<PlaneFinding.MeshData> meshData = new List<PlaneFinding.MeshData>();
-    private BoundedPlane[] planes;
+    public BoundedPlane[] planes;
 
     private void Update()
     {
