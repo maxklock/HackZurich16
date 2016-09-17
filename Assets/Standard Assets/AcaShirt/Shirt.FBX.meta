@@ -1,28 +1,15 @@
 fileFormatVersion: 2
-guid: 0802ff5feb4cd8745a46fce5ff4a2683
-timeCreated: 1474122626
+guid: 8b50baffd78e65244bbdc2b0e225a199
+timeCreated: 1474135191
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Box001
-    100002: Box002
-    100004: Box003
-    100006: //RootNode
-    400000: Box001
-    400002: Box002
-    400004: Box003
-    400006: //RootNode
-    2300000: Box001
-    2300002: Box002
-    2300004: Box003
-    3300000: Box001
-    3300002: Box002
-    3300004: Box003
-    4300000: Box001
-    4300002: Box002
-    4300004: Box003
-    7400000: Move
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Box004
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -44,43 +31,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Move
-      takeName: Take 001
-      firstFrame: 2
-      lastFrame: 6
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Box001
-        weight: 1
-      - path: Box002
-        weight: 1
-      - path: Box003
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
