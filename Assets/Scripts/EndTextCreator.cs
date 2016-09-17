@@ -26,13 +26,14 @@ public class EndTextCreator : MonoBehaviour
 
     public void GenerateEndText()
     {
-        InsurancePolicyManager.InsuranceStatistic statistic = InsurancePolicyManager.Instance.GetStatistic(InsurancePolicyManager.Instance.ActiveInsurance);
+        InsurancePolicyManager.InsuranceName activeInsurance = InsurancePolicyManager.Instance.ActiveInsurance;
+        InsurancePolicyManager.InsuranceStatistic statistic = InsurancePolicyManager.Instance.GetStatistic(activeInsurance);
 
         //report total damage
         string endText = "In 2 Minutes you caused a total damage of"
             + "\n" + (statistic.LostValue + statistic.InsuredValue) + "€ (" + statistic.NumBrokenObjects + " broken Objects)";
         //data on your insurance
-        if (InsurancePolicyManager.Instance.ActiveInsurance != InsurancePolicyManager.InsuranceName.None)
+        if (activeInsurance != InsurancePolicyManager.InsuranceName.None)
             endText += "\n"
                 + "\nYour insurance (" + InsurancePolicyManager.Instance.ActiveInsurance.ToString() + ") covers"
                 + "\n" + statistic.InsuredValue + "€";
