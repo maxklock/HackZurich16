@@ -180,7 +180,7 @@ namespace HoloToolkit.Unity
                 Quaternion toQuat = Camera.main.transform.localRotation;
                 toQuat.x = 0;
                 toQuat.z = 0;
-                this.transform.rotation = toQuat;
+                //this.transform.rotation = toQuat;
             }
         }
     }
