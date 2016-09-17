@@ -15,7 +15,7 @@ public class InGame : MonoBehaviour {
     private void Start()
     {
         _state = GetComponent<StateBehavior>();
-        _time = 20; //2 * 60;
+        _time = 2 * 60;
     }
 
     private void Update()
