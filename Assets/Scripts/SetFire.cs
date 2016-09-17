@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SetFire : MonoBehaviour {
-    public ParticleSystem Fire;
-
-    // Use this for initialization
-    void Start () {
-        Fire.Pause();
+public class SetFire : MonoBehaviour
+{
+    // not necessary, but in case we want to let it BURN(!) it can become useful
+    public ParticleSystem Fire = null;
+    
+    void Start ()
+    {
+        if (Fire != null)
+            Fire.Pause();
     }
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}
