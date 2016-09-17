@@ -35,7 +35,7 @@ public class EndTextCreator : MonoBehaviour
         //data on your insurance
         if (activeInsurance != InsurancePolicyManager.InsuranceName.None)
             endText += "\n"
-                + "\nYour insurance (" + InsurancePolicyManager.Instance.ActiveInsurance.ToString() + ") covers"
+                + "\nYour insurance (" + activeInsurance.ToString() + ") covers"
                 + "\n" + statistic.InsuredValue + "€";
         else
         {
