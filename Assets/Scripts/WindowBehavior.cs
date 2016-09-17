@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Windows : MonoBehaviour {
+public class WindowBehavior : MonoBehaviour {
 
     public enum WeatherType
     {
