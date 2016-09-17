@@ -295,4 +295,26 @@ public class InsurancePolicyManager : Singleton<InsurancePolicyManager> {
     void Update () {
 	
 	}
+
+    public void SetActiveInsurance(string insuranceName)
+    {
+        bool insuranceWasFound = false;
+
+        foreach(InsuranceName insurance in Enum.GetValues(typeof(InsuranceName)))
+        {
+            if(insurance.ToString() == insuranceName)
+            {
+                ActiveInsurance = insurance;
+                insuranceWasFound = true;
+            }
+        }
+
+        if (!insuranceWasFound)
+        {
+            Debug.LogError("Requested insurance '" + insuranceName + "' does not exist");
+            ActiveInsurance = InsuranceName.None;
+        }
+    }
+
+
 }
