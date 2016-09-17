@@ -12,14 +12,17 @@ public class InsuredObject : MonoBehaviour {
         Music,
         Aquarium,
         Clothes,
-        Glass
+        Glass,
+        //Professional,
+        Money
     }
     public enum ObjectDamage
     {
         Fire = 0,
-        Water,
+        TabWater,
         WeakStorm,
-        StrongStorm
+        StrongStorm,
+        Snow
     }
     public ObjectType Type = ObjectType.Furniture;
     public ObjectDamage? Damage = null;
