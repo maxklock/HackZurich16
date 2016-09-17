@@ -21,6 +21,7 @@ public class SetFire : MonoBehaviour {
         {
             fuel.SetOnFire(this);
         }
-        Fire.Play();
+        if(Fire != null)
+            Fire.Play();
     }
 }
