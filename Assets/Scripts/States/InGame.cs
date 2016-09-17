@@ -1,6 +1,4 @@
-﻿using System;
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 using UnityEngine.UI;
@@ -16,6 +14,8 @@ public class InGame : MonoBehaviour {
     {
         _state = GetComponent<StateBehavior>();
         _time = 60; //2 * 60;
+
+        FindObjectOfType<WindowBehavior>().Weather = (WindowBehavior.WeatherType)Random.Range(0, 3);
     }
 
     private void Update()
