@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(InsuredObject))]
 public class BeFired : MonoBehaviour {
     public ParticleSystem Fire;
+    
 	// Use this for initialization
 	void Start () {
         Fire.Pause();
@@ -20,5 +22,6 @@ public class BeFired : MonoBehaviour {
     public void SetOnFire(SetFire fire)
     {
         Fire.Play();
+        gameObject.GetComponent<InsuredObject>().SetDamage(InsuredObject.ObjectDamage.FireDirt);
     }
 }

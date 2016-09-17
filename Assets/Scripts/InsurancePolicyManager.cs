@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using HoloToolkit.Unity;
 
-public class InsurancePolicyManager : MonoBehaviour {
-
+public class InsurancePolicyManager : Singleton<InsurancePolicyManager> {
+    public InsuranceName ActiveInsurance;
     public enum InsuranceName
     {
         //Generic = 0,
@@ -18,40 +19,76 @@ public class InsurancePolicyManager : MonoBehaviour {
         MaximalInsuredValuePerDamagePerInsurance[(int)insurance, (int)type, (int)damage] = value;
     }
 
-    public int GetInsuredValue(InsuranceName insurance, InsuredObject.ObjectType type, InsuredObject.ObjectDamage damage)
+    public int GetInsuredValue(InsuranceName insurance, InsuredObject.ObjectType type, InsuredObject.ObjectDamage? damage)
     {
+        if (damage == null)
+            return 0;
         return MaximalInsuredValuePerDamagePerInsurance[(int)insurance, (int)type, (int)damage];
     }
 
     public int GetInsuredValue(InsuranceName insurance, InsuredObject obj)
     {
+        if (obj.Damage == null)
+            return 0;
         return MaximalInsuredValuePerDamagePerInsurance[(int)insurance, (int)obj.Type, (int)obj.Damage];
     }
 
     public int GetLostValue(InsuranceName insurance, InsuredObject obj)
     {
+        if (obj.Damage == null)
+            return 0;
         return Mathf.Max(0, obj.ValueInEuro - MaximalInsuredValuePerDamagePerInsurance[(int)insurance, (int)obj.Type, (int)obj.Damage]);
     }
 
     // Use this for initialization
     void Start () {
         MaximalInsuredValuePerDamagePerInsurance = new int[Enum.GetNames(typeof(InsuranceName)).Length, Enum.GetNames(typeof(InsuredObject.ObjectType)).Length, Enum.GetNames(typeof(InsuredObject.ObjectDamage)).Length];
-
+        ActiveInsurance = InsuranceName.None;
         InitializeInsurances();
+    }
+
+    public class InsuranceStatistic
+    {
+        public InsuranceStatistic()
+        {
+            InsuredValue = 0;
+            LostValue = 0;
+            NumBrokenObjects = 0;
+        }
+        public int InsuredValue;
+        public int LostValue;
+        public int NumBrokenObjects;
+    }
+
+    public InsuranceStatistic GetStatistic(InsuranceName insurance)
+    {
+        InsuranceStatistic ret = new InsuranceStatistic();
+        InsuredObject[] household = UnityEngine.Object.FindObjectsOfType<InsuredObject>();
+        foreach(InsuredObject obj in household)
+        {
+            if(obj.Damage != null)
+            {
+                ret.InsuredValue += GetInsuredValue(insurance, obj);
+                ret.InsuredValue += GetLostValue(insurance, obj);
+                ret.NumBrokenObjects++;
+            }
+        }
+
+        return ret;
     }
 	
     private void InitializeInsurances()
     {
         #region None
-        SetValue(InsuranceName.None, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.None, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.None, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.None, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.None, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.None, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.None, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.None, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.None, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.Fire, 0);
+        SetValue(InsuranceName.None, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.None, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.None, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.None, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.None, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.None, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.None, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.None, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.None, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.FireDirt, 0);
 
         SetValue(InsuranceName.None, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.TabWater, 0);
         SetValue(InsuranceName.None, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.TabWater, 0);
@@ -96,15 +133,15 @@ public class InsurancePolicyManager : MonoBehaviour {
 
         int n = 30000;
                 #region Optima
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.Fire, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.Fire, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.Fire, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.Fire, 5000);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.FireDirt, n);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.FireDirt, n);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.FireDirt, n);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.FireDirt, 5000);
                                
         SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.TabWater, n);
         SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.TabWater, n);
@@ -148,15 +185,15 @@ public class InsurancePolicyManager : MonoBehaviour {
         #endregion Optima
 
         #region Basic
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.Fire, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.Fire, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.Fire, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.Fire, 1000);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.FireDirt, n);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.FireDirt, n);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.FireDirt, n);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.FireDirt, 1000);
                                
         SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.TabWater, n);
         SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.TabWater, n);
@@ -201,15 +238,15 @@ public class InsurancePolicyManager : MonoBehaviour {
 
         int m = 30000;
         #region GDV
-        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.Fire, m);
-        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.Fire, m);
-        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.Fire, m);
-        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.Fire, m);
-        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.Fire, 0);
-        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.Fire, m);
-        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.Fire, m);
-        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.Fire, 1500);
+        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.FireDirt, m);
+        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.FireDirt, m);
+        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.FireDirt, m);
+        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.FireDirt, m);
+        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.FireDirt, m);
+        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.FireDirt, m);
+        SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.FireDirt, 1500);
                                
         SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.TabWater, 0);
         SetValue(InsuranceName.GDV, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.TabWater, m);
