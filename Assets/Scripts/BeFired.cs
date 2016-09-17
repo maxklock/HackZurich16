@@ -7,7 +7,7 @@ public class BeFired : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-        Fire.Pause();
+        Fire.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class BeFired : MonoBehaviour {
 
     public void SetOnFire(SetFire fire)
     {
-        Fire.Play();
+        Fire.gameObject.SetActive(true);
         gameObject.GetComponent<InsuredObject>().SetDamage(InsuredObject.ObjectDamage.FireDirt);
     }
 }
