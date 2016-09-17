@@ -13,7 +13,7 @@ public class ApplyDirt : MonoBehaviour {
 	
 	}
 
-    void OnCollisionStart(Collision coll)
+    void OnCollisionEnter(Collision coll)
     {
         BecomeDirty fuel = coll.gameObject.GetComponent<BecomeDirty>();
         if (fuel != null)

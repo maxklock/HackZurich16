@@ -14,7 +14,7 @@ public class SetFire : MonoBehaviour {
 	
 	}
 
-    void OnCollisionStart(Collision coll)
+    void OnCollisionEnter(Collision coll)
     {
         BeFired fuel = coll.gameObject.GetComponent<BeFired>();
         if (fuel != null)
