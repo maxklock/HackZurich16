@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BeFired : MonoBehaviour {
+public class BeFired : MonoBehaviour
+{
     public ParticleSystem Fire;
-	// Use this for initialization
+	
+    // Use this for initialization
 	void Start () {
-        Fire.Pause();
+        Fire.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -19,6 +21,6 @@ public class BeFired : MonoBehaviour {
 
     public void SetOnFire(SetFire fire)
     {
-        Fire.Play();
+        Fire.gameObject.SetActive(true);
     }
 }
