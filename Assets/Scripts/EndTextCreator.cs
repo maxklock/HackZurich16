@@ -30,7 +30,7 @@ public class EndTextCreator : MonoBehaviour
 
         //report total damage
         string endText = "In 2 Minutes you caused a total damage of"
-            + "\n" + statistic.LostValue + statistic.InsuredValue + "€ (" + statistic.NumBrokenObjects + " broken Objects)";
+            + "\n" + (statistic.LostValue + statistic.InsuredValue) + "€ (" + statistic.NumBrokenObjects + " broken Objects)";
         //data on your insurance
         if (InsurancePolicyManager.Instance.ActiveInsurance != InsurancePolicyManager.InsuranceName.None)
             endText += "\n"
