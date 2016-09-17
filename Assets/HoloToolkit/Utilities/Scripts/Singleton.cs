@@ -7,17 +7,17 @@ namespace HoloToolkit.Unity
 {
     public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {
-        private static T _Instance;
+        private static T _instance;
 
         public static T Instance
         {
             get
             {
-                if (_Instance == null)
+                if (_instance == null)
                 {
-                    _Instance = FindObjectOfType<T>();
+                    _instance = FindObjectOfType<T>();
                 }
-                return _Instance;
+                return _instance;
             }
         }
     }
