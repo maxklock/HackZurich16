@@ -8,12 +8,7 @@ public class StateMachine : Singleton<StateMachine>
 {
     #region member vars
 
-    public StateBehavior CurrentBehavior;
-
-    [Space]
-    public StateBehavior MainMenu;
-
-    public StateBehavior InGame;
+    public StateBehavior CurrentBehavior; 
 
     #endregion
 
@@ -22,10 +17,7 @@ public class StateMachine : Singleton<StateMachine>
     // Use this for initialization
     void Start()
     {
-        MainMenu.gameObject.SetActive(false);
-        InGame.gameObject.SetActive(false);
-
-        CurrentBehavior.gameObject.SetActive(true);
+        CurrentBehavior = Instantiate(CurrentBehavior);
     }
 
     // Update is called once per frame
@@ -33,11 +25,10 @@ public class StateMachine : Singleton<StateMachine>
     {
         if (CurrentBehavior.CanChangeState)
         {
-            CurrentBehavior.gameObject.SetActive(false);
-            CurrentBehavior.CanChangeState = false;
+            var tmp = Instantiate(CurrentBehavior.NextBehavior);
+            DestroyImmediate(CurrentBehavior.gameObject);
 
-            CurrentBehavior = CurrentBehavior.NextBehavior;
-            CurrentBehavior.gameObject.SetActive(true);
+            CurrentBehavior = tmp;
         }
     }
 
