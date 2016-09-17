@@ -164,26 +164,23 @@ namespace HoloToolkit.Unity
                 var headPosition = Camera.main.transform.position;
                 var gazeDirection = Camera.main.transform.forward;
 
-                this.transform.position = headPosition + gazeDirection * 2;
 
                 // Rotate this object to face the user.
+
+                RaycastHit hitInfo;
+                if (Physics.Raycast(headPosition, gazeDirection, out hitInfo, 2, LayerMask.NameToLayer("Room")))
+                {
+                    this.transform.position = hitInfo.point;
+                }
+                else
+                {
+                    this.transform.position = headPosition + gazeDirection * 2;
+                }
+
                 Quaternion toQuat = Camera.main.transform.localRotation;
                 toQuat.x = 0;
                 toQuat.z = 0;
                 this.transform.rotation = toQuat;
-
-                //RaycastHit hitInfo;
-                //if (Physics.Raycast(headPosition, gazeDirection, out hitInfo,
-                //    30.0f, SpatialMappingManager.Instance.LayerMask))
-                //{
-                //    // Move this object to where the raycast
-                //    // hit the Spatial Mapping mesh.
-                //    // Here is where you might consider adding intelligence
-                //    // to how the object is placed.  For example, consider
-                //    // placing based on the bottom of the object's
-                //    // collider so it sits properly on surfaces.
-                    
-                //}
             }
         }
     }
