@@ -33,7 +33,7 @@ namespace HoloToolkit.Unity
         /// </summary>
         WorldAnchor savedAnchor;
 
-        bool placing = false;
+        public bool Placing { get; set; }
 
         void Start()
         {
@@ -64,16 +64,21 @@ namespace HoloToolkit.Unity
             }
         }
 
+        public void PerformSelect()
+        {
+            OnSelect();
+        }
+
         // Called by GazeGestureManager when the user performs a tap gesture.
         void OnSelect()
         {
             if (SpatialMappingManager.Instance != null)
             {
                 // On each tap gesture, toggle whether the user is in placing mode.
-                placing = !placing;
+                Placing = !Placing;
 
                 // If the user is in placing mode, display the spatial mapping mesh.
-                if (placing)
+                if (Placing)
                 {
                     SpatialMappingManager.Instance.DrawVisualMeshes = true;
 
@@ -153,7 +158,7 @@ namespace HoloToolkit.Unity
         {
                 // If the user is in placing mode,
                 // update the placement to match the user's gaze.
-                if (placing)
+                if (Placing)
             {
                 // Do a raycast into the world that will only hit the Spatial Mapping mesh.
                 var headPosition = Camera.main.transform.position;
