@@ -185,55 +185,55 @@ public class InsurancePolicyManager : Singleton<InsurancePolicyManager> {
         #endregion Optima
 
         #region Basic
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.FireDirt, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.FireDirt, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.FireDirt, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.FireDirt, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.FireDirt, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.FireDirt, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.FireDirt, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.FireDirt, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.FireDirt, 1000);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.FireDirt, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.FireDirt, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.FireDirt, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.FireDirt, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.FireDirt, 1000);
                                
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.TabWater, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.TabWater, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.TabWater, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.TabWater, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.TabWater, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.TabWater, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.TabWater, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.TabWater, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.TabWater, 1000);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.TabWater, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.TabWater, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.TabWater, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.TabWater, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.TabWater, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.TabWater, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.TabWater, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.TabWater, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.TabWater, 1000);
                                
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.WeakStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.WeakStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.WeakStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.WeakStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.WeakStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.WeakStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.WeakStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.WeakStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.WeakStorm, 1000);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.WeakStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.WeakStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.WeakStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.WeakStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.WeakStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.WeakStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.WeakStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.WeakStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.WeakStorm, 1000);
                                
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.StrongStorm, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.StrongStorm, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.StrongStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.StrongStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.StrongStorm, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.StrongStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.StrongStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.StrongStorm, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.StrongStorm, 1000);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.StrongStorm, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.StrongStorm, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.StrongStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.StrongStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.StrongStorm, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.StrongStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.StrongStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.StrongStorm, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.StrongStorm, 1000);
 
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.Snow, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.Snow, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.Snow, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.Snow, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.Snow, n);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.Snow, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.Snow, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.Snow, 0);
-        SetValue(InsuranceName.AxaOptima, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.Snow, 1000);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Aquarium,     InsuredObject.ObjectDamage.Snow, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Clothes,      InsuredObject.ObjectDamage.Snow, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Computer,     InsuredObject.ObjectDamage.Snow, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Flatscreen,   InsuredObject.ObjectDamage.Snow, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Furniture,    InsuredObject.ObjectDamage.Snow, n);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Glass,        InsuredObject.ObjectDamage.Snow, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Music,        InsuredObject.ObjectDamage.Snow, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Sports,       InsuredObject.ObjectDamage.Snow, 0);
+        SetValue(InsuranceName.AxaBasic, InsuredObject.ObjectType.Money,        InsuredObject.ObjectDamage.Snow, 1000);
         #endregion Basic
 
         int m = 30000;

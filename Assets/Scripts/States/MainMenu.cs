@@ -5,16 +5,14 @@ public class MainMenu : MonoBehaviour
 {
     private StateBehavior _state;
 
-    public StateBehavior InGame;
-
     private void Start()
     {
         _state = GetComponent<StateBehavior>();
     }
 
-    public void StartGame()
-    {
-        _state.NextBehavior = InGame;
+    public void StartGame(string insuranceName)
+    { 
         _state.CanChangeState = true;
+        FindObjectOfType<InsurancePolicyManager>().SetActiveInsurance(insuranceName);
     }
 }
