@@ -68,8 +68,8 @@ public class InsurancePolicyManager : Singleton<InsurancePolicyManager> {
         {
             if(obj.Damage != null)
             {
-                ret.InsuredValue += GetInsuredValue(insurance, obj);
-                ret.InsuredValue += GetLostValue(insurance, obj);
+                ret.InsuredValue += Mathf.Min(obj.ValueInEuro, GetInsuredValue(insurance, obj));
+                ret.LostValue += GetLostValue(insurance, obj);
                 ret.NumBrokenObjects++;
             }
         }

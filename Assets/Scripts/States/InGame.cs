@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using HoloToolkit.Unity;
+
 using UnityEngine.UI;
 
 public class InGame : MonoBehaviour {
