@@ -29,8 +29,18 @@ public class EndTextCreator : MonoBehaviour
         InsurancePolicyManager.InsuranceName activeInsurance = InsurancePolicyManager.Instance.ActiveInsurance;
         InsurancePolicyManager.InsuranceStatistic statistic = InsurancePolicyManager.Instance.GetStatistic(activeInsurance);
 
+        var time = string.Empty;
+        if (InGame.GameDuration > 60)
+        {
+            time = ((int)(InGame.GameDuration / 60)).ToString("00") + ":" + ((int)(InGame.GameDuration % 60)).ToString("00") + " Minutes";
+        }
+        else
+        {
+            time = ((int)InGame.GameDuration).ToString("0") + " Seconds";
+        }
+
         //report total damage
-        string endText = "In 2 Minutes you caused a total damage of"
+        string endText = "In " + time + " you caused a total damage of"
             + "\n" + (statistic.LostValue + statistic.InsuredValue) + "€ (" + statistic.NumBrokenObjects + " broken Objects)";
         //data on your insurance
         if (activeInsurance != InsurancePolicyManager.InsuranceName.None)

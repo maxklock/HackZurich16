@@ -13,12 +13,18 @@ public class MakeWet : MonoBehaviour {
 	
 	}
 
-    void OnCollisionEnter(Collision coll)
+    void OnTriggerEnter(Collider other)
     {
-        Wettable sponge = coll.gameObject.GetComponent<Wettable>();
+
+        Wettable sponge = other.gameObject.GetComponent<Wettable>();
         if (sponge != null)
         {
             sponge.MakeWet(this);
         }
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        OnTriggerEnter(coll.collider);
     }
 }

@@ -5,8 +5,10 @@ using HoloToolkit.Unity;
 
 using UnityEngine.UI;
 
-public class InGame : MonoBehaviour {
+public class InGame : MonoBehaviour
+{
 
+    public static readonly float GameDuration = 60;
     private StateBehavior _state;
     private float _time;
 
@@ -15,7 +17,7 @@ public class InGame : MonoBehaviour {
     private void Start()
     {
         _state = GetComponent<StateBehavior>();
-        _time = 60; //2 * 60;
+        _time = GameDuration;
 
         FindObjectOfType<WindowBehavior>().Weather = (WindowBehavior.WeatherType)Random.Range(0, 3);
     }
