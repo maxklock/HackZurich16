@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using HoloToolkit.Unity;
+
 public class WindowBehavior : MonoBehaviour {
 
     public enum WeatherType

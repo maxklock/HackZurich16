@@ -22,5 +22,6 @@ public class Breakable : MonoBehaviour {
         {
             rend.material.mainTexture = BrokenTexture;
         }
+        //GetComponent<InsuredObject>().SetDamage(InsuredObject.ObjectDamage.);
     }
 }

@@ -29,6 +29,8 @@ public class InsuredObject : MonoBehaviour
     public ObjectDamage? Damage = null;
     public int ValueInEuro = 0;
 
+    public int DamageCount = 0;
+
 
     // Use this for initialization
     void Start()
@@ -44,8 +46,11 @@ public class InsuredObject : MonoBehaviour
 
     public void SetDamage(ObjectDamage damage)
     {
+        DamageCount++;
         InsurancePolicyManager insure = InsurancePolicyManager.Instance;
-        if (insure.GetInsuredValue(insure.ActiveInsurance, this.Type, damage) > insure.GetInsuredValue(insure.ActiveInsurance, this))
+        var newValue = insure.GetInsuredValue(insure.ActiveInsurance, this.Type, damage);
+        var oldValue = insure.GetInsuredValue(insure.ActiveInsurance, this);
+        if (Damage == null || newValue > oldValue)
         {
             this.Damage = damage;
         }
